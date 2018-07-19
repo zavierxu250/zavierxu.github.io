@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="register-form.css">
+</head>
+<body>
+
+    <div class="main">
+        <h1 class="headline">Register</h1>
+        <form action="doAction.php" method="post" onsubmit="return check()" class="form">
+            <table>
+                <tr>
+                    <td>
+                        <div>
+                            Username：
+                            <script type="text/javascript">
+                                for (i=0;i<=16;i++){
+                                    document.write('&nbsp')
+                                }
+                            </script>
+                            <input type="text" name="username" id="username">
+                            <p class="tips">(用户名只能使用字母、数字和下划线)</p>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            Password：
+                            <script type="text/javascript">
+                                for (i=0;i<=17;i++){
+                                    document.write('&nbsp')
+                                }
+                            </script>
+                            <input type="password" name="password" id="password">
+                            <p class="tips">(密码不能为空)</p>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            Reconfirm Password：&nbsp
+                            <input type="password" name="confirm_password" id="confirm_password">
+                            <br/><br/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            Gender：<br/>
+                            <div style="text-align: center">
+                                <input type="radio" value="male" name="gender" checked="checked">Male
+                            &nbsp&nbsp&nbsp&nbsp
+                            <input type="radio" value="female" name="gender">Female
+                            </div>
+                            <br/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            Birthday:<br/>
+                            Year:
+                            <select name="year" id="year">
+                                <script type="text/javascript">
+                                    for (i=1960;i<=2018;i++){
+                                        document.write('<option value=i>');
+                                        document.write(i);
+                                        document.write('</option>')
+                                    }
+                                </script>
+                            </select>
+                            Month:
+                            <select name="month" id="month">
+                                <option value=1>January</option>
+                                <option value=2>February</option>
+                                <option value=3>March</option>
+                                <option value=4>April</option>
+                                <option value=5>May</option>
+                                <option value=6>June</option>
+                                <option value=7>July</option>
+                                <option value=8>August</option>
+                                <option value=9>September</option>
+                                <option value=10>October</option>
+                                <option value=11>November</option>
+                                <option value=12>December</option>
+                            </select>
+                            Date:
+                            <select name="date" id="date">
+                                <script type="text/javascript">
+                                    for (i=1;i<=31;i++){
+                                        document.write('<option value=i>');
+                                        document.write(i);
+                                        document.write('</option>')
+                                    }
+                                </script>
+                            </select>
+                            <br/><br/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            Mobile:
+                            <script type="text/javascript">
+                                for (i=0;i<=23;i++){
+                                    document.write('&nbsp')
+                                }
+                            </script>
+                            <input type="text" name="mobile" id="mobile">
+                            <br/><br/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            E-mail：
+                            <script type="text/javascript">
+                                for (i=0;i<=22;i++){
+                                    document.write('&nbsp')
+                                }
+                            </script>
+                            <input type="text" name="email" id="email"><br/>
+                            <p class="tips">(请输入合法的电子邮箱)</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="button">
+                        <input type="submit" value="Register" id="submit">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="button" value="Reset" id="reset">
+                    </td>
+
+                </tr>
+            </table>
+
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        var username,password,confirmpassword,mobile,email;
+        function loadUsername() {
+            username=document.getElementById('username').value;
+        }
+        function loadPassword() {
+            password=document.getElementById('password').value;
+        }
+        function loadconfirmpassword() {
+            confirmpassword=document.getElementById('confirm_password').value;
+        }
+        function loadNumber() {
+            mobile=document.getElementById('mobile').value;
+        }
+        function loadEmail() {
+            email=document.getElementById('email').value;
+        }
+                function check(){
+                    loadUsername();
+                        if(!/^[A-Za-z0-9_]+$/.test(username)){
+                            alert('用户名不合法');
+                            document.getElementById('username').value='';
+                            return false;
+                        }
+                    loadPassword();
+                        if (/^[\s\n\t\r]*$/.test(password)){
+                            alert('密码不能为空');
+                            document.getElementById('password').value='';
+                            return false;
+                        }
+                    loadconfirmpassword();
+                        if(confirmpassword!==password){
+                            alert('密码不正确！');
+                            document.getElementById('confirm_password').value='';
+                            return false;
+                        }
+                    loadNumber();
+                        if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(mobile)){
+                            alert('请输入正确的手机号码');
+                            document.getElementById('mobile').value='';
+                            return false;
+                        }
+                    loadEmail();
+                        if( !/^[A-Za-z0-9._%-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,4}$/.test(email)){
+                            alert('请输入合法的电子邮箱');
+                            document.getElementById('email').value='';
+                            return false;
+                        }
+                        return true;
+                }
+        var reset=document.getElementById('reset');
+        function reSet(){
+            document.getElementById('username').value='';
+            document.getElementById('password').value='';
+            document.getElementById('confirm_password').value='';
+            document.getElementById('mobile').value='';
+            document.getElementById('email').value='';
+            return false;
+        }
+        var handler=function (e) {
+            switch (e.type) {
+                case 'mouseover':
+                    event.target.style.color='white';
+                    event.target.style.backgroundColor='#cd2742';
+                    break;
+                case 'mouseout':
+                    event.target.style.color='#cd2742';
+                    event.target.style.backgroundColor='';
+                    break;
+            }
+        };
+        reset.onclick=reSet;
+        reset.onmouseover=handler;
+        reset.onmouseout=handler;
+        var submit=document.getElementById('submit');
+        submit.onmouseover=handler;
+        submit.onmouseout=handler;
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+.main{
+    text-align: center; /*让div内部文字居中*/
+    background-color: #fff;
+    border-radius: 20px;
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+body{
+    background-color: #cd2742;
+}
+
+
+.headline{
+    font-family:Trajan Pro;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.tips{
+    font-size: 12px;
+    line-height: 12px;
+    text-align: right;
+}
+
+.main .form table{
+
+    margin-left: 70px;
+
+}
+
+.main .form table td{
+/*    border: solid black 1px;*/
+    text-align: left;
+
+}
+
+#button{
+    text-align: center;
+}
+
+#submit{
+    height: 40px;
+    width: 100px;
+    font-size: 24px;
+    border-radius: 20px;
+    outline: none;
+    font-family:Impact;
+    color: #cd2742;
+    border:none;
+}
+#reset{
+    height: 40px;
+    width: 100px;
+    font-size: 24px;
+    border-radius: 20px;
+    outline: none;
+    font-family:Impact;
+    color: #cd2742;
+    border:none;
+}
+

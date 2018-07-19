@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+        <a href="register.html">
+            <div id="register_div">
+                REGISTER
+            </div>
+        </a>
+
+        <a href="logging.html">
+            <div id="logging_div">
+                LOGGING
+            </div>
+        </a>
+
+
+    <script>
+        var handler=function (e) {
+            switch (e.type) {
+                case 'mouseover':
+                    event.target.style.color = 'white';
+                    event.target.style.backgroundColor = '#cd2742';
+                    break;
+                case 'mouseout':
+                    event.target.style.color = '#cd2742';
+                    event.target.style.backgroundColor = 'aliceblue';
+                    break;
+            }
+        }
+        var register_div=document.getElementById('register_div');
+        var logging_div=document.getElementById('logging_div');
+        register_div.onmouseover=handler;
+        register_div.onmouseout=handler;
+        logging_div.onmouseover=handler;
+        logging_div.onmouseout=handler;
+    </script>
+</body>
+</html>
